@@ -1,26 +1,76 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700;800;900&family=Overpass+Mono:wght@400;600;700&display=swap');
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Overpass', system-ui, sans-serif;
+  --font-mono: 'Overpass Mono', monospace;
+  --color-bg: #050505;
+  --color-green: #00ff88;
+  --color-green-dim: #00d470;
+  --color-muted: #4a5a50;
+  --color-text: #a0b8a8;
+  --color-surface: #0a0f0a;
+  --color-border: rgba(0, 255, 136, 0.08);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  ::selection { background: rgba(0, 255, 136, 0.25); color: #fff; }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ── Highway sign ── */
+.highway-sign {
+  background: #006b3f;
+  border: 4px solid #fff;
+  border-radius: 12px;
+  padding: 2rem 3rem;
+  position: relative;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
 }
+.highway-sign::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* ── Exit marker ── */
+.exit-marker {
+  background: #006b3f;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: white;
+  display: inline-block;
+  letter-spacing: 0.05em;
+}
+
+/* ── Road line ── */
+.road-line {
+  height: 4px;
+  background: repeating-linear-gradient(90deg, #fff 0, #fff 20px, transparent 20px, transparent 40px);
+  opacity: 0.15;
+}
+
+/* ── Arrow ── */
+.arrow-right {
+  display: inline-block;
+  border: solid var(--color-green);
+  border-width: 0 3px 3px 0;
+  padding: 6px;
+  transform: rotate(-45deg);
+}
+
+/* ── Animations ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.anim-up { animation: fadeUp 0.8s ease-out both; }
+.d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.2s; } .d3 { animation-delay: 0.35s; } .d4 { animation-delay: 0.5s; }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: rgba(0,255,136,0.2); }
