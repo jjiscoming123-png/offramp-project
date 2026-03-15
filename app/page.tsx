@@ -9,7 +9,7 @@ export default function Page() {
           <Logo size={22} />
           <span className="text-[11px] font-bold tracking-[0.15em] text-[var(--color-green)]/60">OFFRAMP</span>
         </div>
-        <a href="https://x.com/OfframpCoin" target="_blank" rel="noopener noreferrer"
+        <a href="https://x.com/offrampnow" target="_blank" rel="noopener noreferrer"
           className="text-[11px] font-bold text-black bg-[var(--color-green)] px-4 py-1.5 rounded hover:bg-[var(--color-green-dim)] transition-colors">
           EXIT HERE →
         </a>
@@ -91,7 +91,7 @@ export default function Page() {
         <p className="text-sm text-[var(--color-muted)] mb-8 max-w-sm mx-auto">
           The road doesn&apos;t get better. The exit does.
         </p>
-        <a href="https://x.com/OfframpCoin" target="_blank" rel="noopener noreferrer"
+        <a href="https://x.com/offrampnow" target="_blank" rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-sm font-bold text-black bg-[var(--color-green)] px-6 py-3 rounded hover:bg-[var(--color-green-dim)] transition-colors">
           <span>𝕏</span> Exit Here
         </a>
